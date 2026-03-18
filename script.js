@@ -166,3 +166,144 @@ if (backgroundAudio) {
     }
   });
 }
+
+
+const characterIntroRoot = document.querySelector('[data-character-intro]');
+const characterIntroStart = document.querySelector('[data-character-intro-start]');
+const characterIntroChartCard = characterIntroRoot?.querySelector('.character-intro__chart-card');
+const characterIntroDetail = document.querySelector('[data-character-intro-detail]');
+const characterCard = document.querySelector('[data-character-card]');
+const characterImage = document.querySelector('[data-character-image]');
+const characterName = document.querySelector('[data-character-name]');
+const characterText = document.querySelector('[data-character-text]');
+const characterQuote = document.querySelector('[data-character-quote]');
+const characterPrev = document.querySelector('[data-character-prev]');
+const characterNext = document.querySelector('[data-character-next]');
+const characterBack = document.querySelector('[data-character-back]');
+const characterDots = document.querySelector('[data-character-dots]');
+
+const characterProfiles = [
+  {
+    key: 'girl',
+    image: 'Assets/Image/Ozyou-icon.PNG',
+    imageAlt: 'お嬢のアイコン',
+    name: 'お嬢',
+    tone: 'girl',
+    text: 'くまさんと恋人が大好き。にんげんが、ちょっとこわい。昼夜逆転生活になっている。',
+    quote: '「いつかきっと、たましいが痛みなく消えちゃえばいいのにな。」',
+  },
+  {
+    key: 'bear',
+    image: 'Assets/Image/Kumasan-icon.PNG',
+    imageAlt: 'くまさんのアイコン',
+    name: 'くまさん',
+    tone: 'bear',
+    text: 'お嬢が大好き。お嬢のぬいぐるみ。お嬢の健康が心配。',
+    quote: '「嗚呼、もどかしい。僕の手で、僕の意思で。君を抱きしめられたなら……。」',
+  },
+  {
+    key: 'lover',
+    image: 'Assets/Image/Koibito-icon.PNG',
+    imageAlt: '恋人のアイコン',
+    name: '恋人',
+    tone: 'lover',
+    text: 'お嬢がとても大好き。毎日のように病んでいる彼女に元気になってもらいたい。',
+    quote: '「ねえ、愛しい人。私がいるのに、何故貴女は死へと急いでしまうの……。」',
+  },
+];
+
+let activeCharacterIndex = 0;
+let isCharacterIntroOpen = false;
+
+const renderCharacterDots = () => {
+  if (!characterDots) {
+    return;
+  }
+
+  characterDots.replaceChildren();
+
+  characterProfiles.forEach((profile, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'carousel-dot';
+    dot.setAttribute('aria-label', `${profile.name} の紹介を表示`);
+    dot.setAttribute('aria-pressed', String(index === activeCharacterIndex));
+
+    if (index === activeCharacterIndex) {
+      dot.classList.add('is-active');
+    }
+
+    dot.addEventListener('click', () => {
+      activeCharacterIndex = index;
+      renderCharacterCard();
+    });
+
+    characterDots.append(dot);
+  });
+};
+
+const renderCharacterCard = () => {
+  const profile = characterProfiles[activeCharacterIndex];
+
+  if (!profile || !characterCard || !characterImage || !characterName || !characterText || !characterQuote) {
+    return;
+  }
+
+  characterCard.dataset.tone = profile.tone;
+  characterImage.src = profile.image;
+  characterImage.alt = profile.imageAlt;
+  characterName.textContent = profile.name;
+  characterText.textContent = profile.text;
+  characterQuote.textContent = profile.quote;
+  renderCharacterDots();
+};
+
+const openCharacterIntro = () => {
+  if (!characterIntroRoot || !characterIntroChartCard || !characterIntroDetail || isCharacterIntroOpen) {
+    return;
+  }
+
+  isCharacterIntroOpen = true;
+  characterIntroRoot.classList.add('is-transitioning');
+
+  window.setTimeout(() => {
+    characterIntroChartCard.hidden = true;
+    characterIntroDetail.hidden = false;
+    characterIntroRoot.classList.remove('is-transitioning');
+  }, TRANSITION_MS);
+};
+
+const closeCharacterIntro = () => {
+  if (!characterIntroRoot || !characterIntroChartCard || !characterIntroDetail || !isCharacterIntroOpen) {
+    return;
+  }
+
+  isCharacterIntroOpen = false;
+  characterIntroChartCard.hidden = false;
+  characterIntroDetail.hidden = true;
+  characterIntroRoot.classList.remove('is-transitioning');
+};
+
+if (characterIntroStart) {
+  characterIntroStart.addEventListener('click', openCharacterIntro);
+}
+
+if (characterPrev) {
+  characterPrev.addEventListener('click', () => {
+    activeCharacterIndex = (activeCharacterIndex - 1 + characterProfiles.length) % characterProfiles.length;
+    renderCharacterCard();
+  });
+}
+
+if (characterNext) {
+  characterNext.addEventListener('click', () => {
+    activeCharacterIndex = (activeCharacterIndex + 1) % characterProfiles.length;
+    renderCharacterCard();
+  });
+}
+
+if (characterBack) {
+  characterBack.addEventListener('click', closeCharacterIntro);
+}
+
+renderCharacterCard();
