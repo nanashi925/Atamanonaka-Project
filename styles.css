@@ -207,9 +207,12 @@ body.is-transitioning .intro-overlay__wash {
   background: transparent;
   padding: 0;
   cursor: pointer;
+  isolation: isolate;
 }
 
 .character img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: auto;
@@ -234,6 +237,7 @@ body.is-transitioning .intro-overlay__wash {
 
 .speech-bubble {
   position: absolute;
+  z-index: 3;
   display: none;
   min-width: 170px;
   max-width: min(36vw, 360px);

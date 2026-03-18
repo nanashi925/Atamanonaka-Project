@@ -93,9 +93,6 @@ const setupBackgroundAudioSession = () => {
     navigator.mediaSession.setActionHandler('play', async () => {
       await backgroundAudio.play();
       navigator.mediaSession.playbackState = 'playing';
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.playbackState = 'playing';
-      }
     });
     navigator.mediaSession.setActionHandler('pause', () => {
       backgroundAudio.pause();
@@ -112,17 +109,6 @@ setupBackgroundAudioSession();
 characters.forEach((character) => {
   character.addEventListener('click', () => {
     showCharacterDialogue(character);
-    const isActive = character.classList.contains('is-active');
-
-    characters.forEach((item) => {
-      item.classList.remove('is-active');
-      item.setAttribute('aria-expanded', 'false');
-    });
-
-    if (!isActive) {
-      character.classList.add('is-active');
-      character.setAttribute('aria-expanded', 'true');
-    }
   });
 });
 
