@@ -13,10 +13,16 @@
   --girl-border: #8c2d5d;
   --girl-fill: #ffd7e7;
   --girl-text: #54204f;
+  --intro-bg: #ffffff;
+  --intro-tap: #f3b7d6;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  background: var(--page-bg);
 }
 
 body {
@@ -26,8 +32,91 @@ body {
   color: var(--text-main);
 }
 
+body.is-locked {
+  overflow: hidden;
+}
+
+body.is-revealed .intro-overlay {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 button {
   font: inherit;
+}
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: var(--intro-bg);
+  transition: opacity 1.3s ease, visibility 1.3s ease;
+}
+
+.intro-overlay__button {
+  position: relative;
+  z-index: 2;
+  width: min(84vw, 820px);
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+}
+
+.intro-overlay__card {
+  display: block;
+  width: 100%;
+}
+
+.intro-overlay__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.intro-overlay__tap {
+  color: var(--intro-tap);
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1;
+  letter-spacing: 0.12em;
+}
+
+.intro-overlay__wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(255, 244, 250, 0.72) 52%, rgba(255, 255, 255, 0.96) 100%),
+    linear-gradient(135deg, rgba(255, 235, 244, 0.65), rgba(255, 255, 255, 0.2));
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+body.is-transitioning .intro-overlay__wash {
+  animation: intro-wash 1.3s ease forwards;
+}
+
+@keyframes intro-wash {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  35% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.98;
+    transform: scale(1.04);
+  }
 }
 
 .page-shell {
@@ -67,7 +156,8 @@ button {
 }
 
 .about-toggle:focus-visible,
-.character:focus-visible {
+.character:focus-visible,
+.intro-overlay__button:focus-visible {
   outline: 3px solid rgba(255, 255, 255, 0.95);
   outline-offset: 8px;
 }
@@ -226,6 +316,15 @@ button {
 @media (max-width: 720px) {
   .page-shell {
     padding: 18px 18px 40px;
+  }
+
+  .intro-overlay__button {
+    width: min(92vw, 760px);
+    gap: 18px;
+  }
+
+  .intro-overlay__tap {
+    font-size: clamp(36px, 8vw, 56px);
   }
 
   .site-title {

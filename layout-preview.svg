@@ -1,0 +1,70 @@
+<svg width="900" height="1600" viewBox="0 0 900 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1600" fill="#140C1C"/>
+
+  <text x="110" y="120" fill="#F4B5DF" font-size="76" font-weight="700" font-family="'Hiragino Maru Gothic ProN','Yu Gothic',sans-serif" letter-spacing="6">あたまのなか</text>
+  <text x="110" y="220" fill="#F4B5DF" font-size="76" font-weight="700" font-family="'Hiragino Maru Gothic ProN','Yu Gothic',sans-serif" letter-spacing="6">ぷろじぇくと</text>
+
+  <text x="112" y="300" fill="#FFFFFF" font-size="36" font-family="'Hiragino Maru Gothic ProN','Yu Gothic',sans-serif">あたまのなかぷろじぇくととは</text>
+
+  <rect x="90" y="350" width="720" height="120" rx="26" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.16)"/>
+  <text x="125" y="410" fill="#FFFFFF" font-size="24" font-family="'Hiragino Sans','Yu Gothic',sans-serif">説明文エリア（クリックで開閉）</text>
+  <text x="125" y="445" fill="#FFFFFF" font-size="20" font-family="'Hiragino Sans','Yu Gothic',sans-serif">あとで本文をまとめて表示する想定</text>
+
+  <rect x="70" y="510" width="760" height="506" rx="34" fill="#2F2238"/>
+  <rect x="70" y="510" width="760" height="506" rx="34" fill="url(#roomPattern)"/>
+
+  <ellipse cx="250" cy="690" rx="120" ry="78" fill="#C9A28F" stroke="#4B2F24" stroke-width="5"/>
+  <path d="M210 756 L188 790 L244 768 Z" fill="#C9A28F" stroke="#4B2F24" stroke-width="5" stroke-linejoin="round"/>
+  <text x="184" y="708" fill="#111111" font-size="44" font-family="'Hiragino Sans','Yu Gothic',sans-serif">コメント</text>
+
+  <g transform="translate(125 760)">
+    <ellipse cx="72" cy="46" rx="22" ry="18" fill="#8B5A4A"/>
+    <ellipse cx="132" cy="46" rx="22" ry="18" fill="#8B5A4A"/>
+    <ellipse cx="102" cy="116" rx="84" ry="92" fill="#8B5A4A"/>
+    <ellipse cx="102" cy="110" rx="62" ry="72" fill="#A46D58"/>
+    <ellipse cx="84" cy="100" rx="7" ry="8" fill="#151515"/>
+    <ellipse cx="121" cy="100" rx="7" ry="8" fill="#151515"/>
+    <ellipse cx="103" cy="115" rx="10" ry="8" fill="#EFD9CC"/>
+    <ellipse cx="48" cy="164" rx="22" ry="40" fill="#8B5A4A"/>
+    <ellipse cx="156" cy="164" rx="22" ry="40" fill="#8B5A4A"/>
+    <ellipse cx="68" cy="232" rx="24" ry="42" fill="#8B5A4A"/>
+    <ellipse cx="138" cy="232" rx="24" ry="42" fill="#8B5A4A"/>
+  </g>
+
+  <g transform="translate(520 635)">
+    <circle cx="56" cy="32" r="18" fill="#FFD7E7" stroke="#8C2D5D" stroke-width="6"/>
+    <circle cx="132" cy="32" r="18" fill="#FFD7E7" stroke="#8C2D5D" stroke-width="6"/>
+    <rect x="42" y="40" width="104" height="136" rx="42" fill="#FFD7E7" stroke="#8C2D5D" stroke-width="6"/>
+    <circle cx="94" cy="78" r="34" fill="#202020"/>
+    <rect x="64" y="118" width="60" height="52" rx="16" fill="#FFC5DD"/>
+    <rect x="56" y="164" width="76" height="60" rx="18" fill="#FFC5DD"/>
+    <rect x="60" y="224" width="24" height="52" rx="12" fill="#FFD7E7"/>
+    <rect x="104" y="224" width="24" height="52" rx="12" fill="#FFD7E7"/>
+  </g>
+
+  <rect x="38" y="1060" width="824" height="292" rx="34" fill="#F7F1F6" stroke="#B4A1B0" stroke-width="4" stroke-dasharray="14 12"/>
+  <text x="150" y="1215" fill="#2F2031" font-size="34" font-family="'Hiragino Sans','Yu Gothic',sans-serif">この下に、次のコンテンツを追加していけます。</text>
+
+  <rect x="38" y="1388" width="824" height="172" rx="34" fill="#F7F1F6" stroke="#B4A1B0" stroke-width="4" stroke-dasharray="14 12"/>
+  <text x="150" y="1494" fill="#2F2031" font-size="34" font-family="'Hiragino Sans','Yu Gothic',sans-serif">この下に、次のコンテンツを追加していけます。</text>
+
+  <defs>
+    <pattern id="roomPattern" patternUnits="userSpaceOnUse" width="760" height="506">
+      <rect width="760" height="506" fill="#E7CFD7"/>
+      <rect x="0" y="0" width="175" height="506" fill="#2B2E58" opacity="0.78"/>
+      <rect x="24" y="26" width="126" height="186" fill="#1E2346" stroke="#E7CFD7" stroke-width="6"/>
+      <path d="M24 88 H150 M24 150 H150 M66 26 V212 M108 26 V212" stroke="#E7CFD7" stroke-width="6" opacity="0.85"/>
+      <rect x="214" y="144" width="336" height="220" rx="20" fill="#D9AEC4"/>
+      <rect x="250" y="180" width="250" height="48" rx="10" fill="#3E304A"/>
+      <rect x="230" y="238" width="300" height="86" rx="16" fill="#4A2E63"/>
+      <rect x="476" y="204" width="112" height="142" rx="12" fill="#B1B0C2" opacity="0.74"/>
+      <rect x="598" y="292" width="132" height="114" rx="12" fill="#5B392F"/>
+      <rect x="72" y="330" width="126" height="94" rx="12" fill="#4B2E2A"/>
+      <rect x="476" y="62" width="140" height="168" fill="#2D365B" opacity="0.82"/>
+      <rect x="650" y="72" width="90" height="18" rx="9" fill="#6B473E"/>
+      <rect x="198" y="348" width="74" height="140" rx="10" fill="#1D2334"/>
+      <rect x="518" y="386" width="186" height="86" rx="10" fill="#5D3C34"/>
+      <rect x="180" y="424" width="388" height="64" rx="20" fill="#82616C" opacity="0.45"/>
+    </pattern>
+  </defs>
+</svg>
