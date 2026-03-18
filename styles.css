@@ -405,7 +405,7 @@ body.is-transitioning .intro-overlay__wash {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: -18px auto 0;
   min-width: 154px;
   padding: 12px 28px;
   border: 1px solid rgba(255, 235, 244, 0.85);
@@ -496,6 +496,10 @@ body.is-transitioning .intro-overlay__wash {
 
 .character-intro__controls {
   margin-top: 12px;
+}
+
+.character-intro__controls {
+  margin-top: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
