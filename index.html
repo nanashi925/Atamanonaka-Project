@@ -92,9 +92,44 @@
         </div>
       </section>
 
-      <section class="content-placeholder" aria-label="今後追加するエリア">
-        <div class="content-placeholder-inner">
-          <p>この下に、次のコンテンツを追加していけます。</p>
+      <section class="character-intro" aria-labelledby="character-intro-title" data-character-intro>
+        <div class="character-intro__chart-card">
+          <h2 class="character-intro__title" id="character-intro-title">人物紹介</h2>
+          <div class="character-intro__chart-shell">
+            <img
+              class="character-intro__chart"
+              src="Assets/Image/Character-correlation-chart.PNG"
+              alt="お嬢、くまさん、恋人の相関図"
+            />
+            <div class="character-intro__wash" aria-hidden="true"></div>
+          </div>
+          <button class="character-intro__tap" type="button" data-character-intro-start>
+            <span>TAP</span>
+          </button>
+        </div>
+
+        <div class="character-intro__detail" data-character-intro-detail hidden>
+          <article class="character-card" data-character-card>
+            <div class="character-card__visual">
+              <img class="character-card__image" data-character-image src="Assets/Image/Ozyou-icon.PNG" alt="" />
+            </div>
+            <div class="character-card__copy">
+              <p class="character-card__name" data-character-name>お嬢</p>
+              <p class="character-card__text" data-character-text></p>
+              <p class="character-card__quote" data-character-quote></p>
+            </div>
+          </article>
+
+          <nav class="character-intro__controls" aria-label="キャラクター紹介の操作">
+            <button class="carousel-button carousel-button--back" type="button" data-character-back>もどる</button>
+            <button class="carousel-button" type="button" data-character-prev aria-label="前の紹介へ">
+              <span aria-hidden="true">&lt;</span>
+            </button>
+            <div class="carousel-dots" data-character-dots aria-label="紹介の現在位置"></div>
+            <button class="carousel-button" type="button" data-character-next aria-label="次の紹介へ">
+              <span aria-hidden="true">&gt;</span>
+            </button>
+          </nav>
         </div>
       </section>
 
