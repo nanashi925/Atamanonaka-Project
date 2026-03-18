@@ -239,8 +239,8 @@ body.is-transitioning .intro-overlay__wash {
   position: absolute;
   z-index: 3;
   display: none;
-  width: fit-content;
-  min-width: 200px;
+  width: min(60vw, 520px);
+  min-width: 220px;
   max-width: min(60vw, 520px);
   padding: 18px 22px;
   border: 2px solid;
@@ -292,8 +292,10 @@ body.is-transitioning .intro-overlay__wash {
 }
 
 .speech-text {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
   text-wrap: pretty;
-  word-break: keep-all;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 
@@ -396,7 +398,7 @@ body.is-transitioning .intro-overlay__wash {
   }
 
   .speech-bubble {
-    width: fit-content;
+    width: min(78vw, 420px);
     min-width: min(240px, 68vw);
     max-width: min(78vw, 420px);
     padding: 12px 14px;
