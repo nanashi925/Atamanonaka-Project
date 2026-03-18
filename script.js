@@ -6,6 +6,66 @@ const introButton = document.querySelector('[data-intro-button]');
 const backgroundAudio = document.querySelector('[data-bg-audio]');
 const TRANSITION_MS = 1300;
 
+const dialogueMap = {
+  bear: [
+    '君はすぐに、パンを焦がすんだから…',
+    '料理、上手くなったね。',
+    '君が笑顔になってくれると僕は嬉しいよ。',
+    'だいすきだよ、--ちゃん。',
+    'くまさんがぎゅーってしてあげる、ぎゅーって。',
+    'ごはんたべた？',
+    'おかたづけした？',
+    'もー、また朝まで起きて！もーだよ、もー！ぷんぷん！',
+    '同じ年にいなくなったら、僕たちは同じ場所に行けるのかなあ。',
+    'ながいきしてね',
+    '僕もだいすきだよ、--ちゃん。',
+    '君が大好きな人となかよくね',
+    'ねれない？僕がぎゅーってしてあげる。',
+    'よしよし、大丈夫、大丈夫だよ。',
+    'くまさんがいるから大丈夫だよ。',
+    'ずっと、げんきでいてね。--ちゃん。',
+  ],
+  girl: [
+    'ねむい',
+    'だるい',
+    'つかれた',
+    'といれ',
+    'おふろはいらなきゃ',
+    'やだなー、人生って',
+    '私なんて、生きる価値はあるのかな',
+    'あーあ、この世ってなんでこんなに疲れるんだろ。',
+    'にんげん、やだなー。',
+    'ひといきつきたいな。',
+    '恋人と会いたい。',
+    '恋人だいすき。',
+    'わたしって、すてられちゃうのかな？',
+    '〇にたい',
+    '〇えたい',
+    'あのね、人ってね。どうにもならない時もあるんだよ',
+  ],
+};
+
+const randomFrom = (items) => items[Math.floor(Math.random() * items.length)];
+
+const showCharacterDialogue = (character) => {
+  const { character: key } = character.dataset;
+  const speechText = character.querySelector('.speech-text');
+  const lines = dialogueMap[key];
+
+  characters.forEach((item) => {
+    item.classList.remove('is-active');
+    item.setAttribute('aria-expanded', 'false');
+  });
+
+  if (!speechText || !lines || lines.length === 0) {
+    return;
+  }
+
+  speechText.textContent = randomFrom(lines);
+  character.classList.add('is-active');
+  character.setAttribute('aria-expanded', 'true');
+};
+
 const setupBackgroundAudioSession = () => {
   if (!backgroundAudio) {
     return;
@@ -32,9 +92,7 @@ const setupBackgroundAudioSession = () => {
 
     navigator.mediaSession.setActionHandler('play', async () => {
       await backgroundAudio.play();
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.playbackState = 'playing';
-      }
+      navigator.mediaSession.playbackState = 'playing';
     });
     navigator.mediaSession.setActionHandler('pause', () => {
       backgroundAudio.pause();
@@ -50,17 +108,7 @@ setupBackgroundAudioSession();
 
 characters.forEach((character) => {
   character.addEventListener('click', () => {
-    const isActive = character.classList.contains('is-active');
-
-    characters.forEach((item) => {
-      item.classList.remove('is-active');
-      item.setAttribute('aria-expanded', 'false');
-    });
-
-    if (!isActive) {
-      character.classList.add('is-active');
-      character.setAttribute('aria-expanded', 'true');
-    }
+    showCharacterDialogue(character);
   });
 });
 
