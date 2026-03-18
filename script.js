@@ -269,7 +269,6 @@ const openCharacterIntro = () => {
   window.setTimeout(() => {
     characterIntroChartCard.hidden = true;
     characterIntroDetail.hidden = false;
-    characterIntroDetail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     characterIntroRoot.classList.remove('is-transitioning');
   }, TRANSITION_MS);
 };
@@ -283,7 +282,6 @@ const closeCharacterIntro = () => {
   characterIntroChartCard.hidden = false;
   characterIntroDetail.hidden = true;
   characterIntroRoot.classList.remove('is-transitioning');
-  characterIntroRoot.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 };
 
 if (characterIntroStart) {
