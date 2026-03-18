@@ -239,9 +239,9 @@ body.is-transitioning .intro-overlay__wash {
   position: absolute;
   z-index: 3;
   display: none;
-  width: max-content;
-  min-width: 170px;
-  max-width: min(52vw, 440px);
+  width: fit-content;
+  min-width: 200px;
+  max-width: min(60vw, 520px);
   padding: 18px 22px;
   border: 2px solid;
   border-radius: 28px;
@@ -282,6 +282,7 @@ body.is-transitioning .intro-overlay__wash {
 .speech-text {
   position: relative;
   z-index: 1;
+  display: block;
 }
 
 .speech-name {
@@ -395,12 +396,12 @@ body.is-transitioning .intro-overlay__wash {
   }
 
   .speech-bubble {
-    width: max-content;
-    min-width: 140px;
-    max-width: min(66vw, 340px);
+    width: fit-content;
+    min-width: min(240px, 68vw);
+    max-width: min(78vw, 420px);
     padding: 12px 14px;
     border-radius: 28px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .bear-bubble {
@@ -409,7 +410,7 @@ body.is-transitioning .intro-overlay__wash {
   }
 
   .girl-bubble {
-    right: -8%;
+    right: -4%;
     bottom: 97%;
   }
 
