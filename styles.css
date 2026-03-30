@@ -46,6 +46,7 @@ body.is-revealed .intro-overlay {
 
 button {
   font: inherit;
+  touch-action: manipulation;
 }
 
 .intro-overlay {
